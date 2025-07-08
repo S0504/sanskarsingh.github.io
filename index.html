@@ -227,23 +227,31 @@
     &copy; 2025 Sanskar Singh
   </footer>
 
-  <!-- Scroll-spy -->
+   <!-- Scroll-Spy (replace your existing script) -->
   <script>
     const sections = ['home','about','experience','projects','skills','contact'];
     const navLinks = sections.reduce((o,id) => {
       o[id] = document.getElementById('nav-'+id);
       return o;
     }, {});
+
     window.addEventListener('scroll', () => {
-      let y = window.scrollY + 200;
-      for (let id of sections) {
-        let el = document.getElementById(id);
-        if (el.offsetTop <= y && el.offsetTop + el.offsetHeight > y) {
-          sections.forEach(i => navLinks[i].classList.remove('active'));
-          navLinks[id].classList.add('active');
+      let currentId = null;
+
+      sections.forEach(id => {
+        const rect = document.getElementById(id).getBoundingClientRect();
+        // if the top of the section is above 30% of viewport height, mark it active
+        if (rect.top <= window.innerHeight * 0.3) {
+          currentId = id;
         }
+      });
+
+      if (currentId) {
+        sections.forEach(i => navLinks[i].classList.remove('active'));
+        navLinks[currentId].classList.add('active');
       }
     });
   </script>
+
 </body>
 </html>
