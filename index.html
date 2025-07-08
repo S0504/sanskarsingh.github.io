@@ -228,33 +228,32 @@
   </footer>
 
   <script>
-  // grab all sections and corresponding nav links
-  const sections = document.querySelectorAll("section[id]");
+  // Grab all <section id="..."> elements and map their nav links
+  const sections = document.querySelectorAll('section[id]');
   const navLinks = {};
   sections.forEach(sec => {
-    navLinks[sec.id] = document.getElementById("nav-" + sec.id);
+    navLinks[sec.id] = document.getElementById('nav-' + sec.id);
   });
 
-  // callback for intersection changes
+  // Observe when a section crosses the center of the viewport
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      const id = entry.target.id;
       if (entry.isIntersecting) {
-        // clear old active
-        Object.values(navLinks).forEach(a => a.classList.remove("active"));
-        // set new active
-        navLinks[id].classList.add("active");
+        // Clear all active classes
+        Object.values(navLinks).forEach(a => a.classList.remove('active'));
+        // Highlight the one that just intersected
+        navLinks[entry.target.id].classList.add('active');
       }
     });
   }, {
-    root: null,            // viewport
-    rootMargin: "-40% 0px -55% 0px", 
-    threshold: 0           // fire as soon as any pixel is visible
+    root: null,               // viewport
+    rootMargin: '-50% 0px -50% 0px', 
+    threshold: 0              // fire as soon as any bit crosses that middle band
   });
 
-  // observe each section
   sections.forEach(sec => observer.observe(sec));
 </script>
+
 
 
 </body>
