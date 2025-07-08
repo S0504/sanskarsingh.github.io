@@ -227,31 +227,35 @@
     &copy; 2025 Sanskar Singh
   </footer>
 
-   <!-- Scroll-Spy (replace your existing script) -->
   <script>
-    const sections = ['home','about','experience','projects','skills','contact'];
-    const navLinks = sections.reduce((o,id) => {
-      o[id] = document.getElementById('nav-'+id);
-      return o;
-    }, {});
+  // grab all sections and corresponding nav links
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = {};
+  sections.forEach(sec => {
+    navLinks[sec.id] = document.getElementById("nav-" + sec.id);
+  });
 
-    window.addEventListener('scroll', () => {
-      let currentId = null;
-
-      sections.forEach(id => {
-        const rect = document.getElementById(id).getBoundingClientRect();
-        // if the top of the section is above 30% of viewport height, mark it active
-        if (rect.top <= window.innerHeight * 0.3) {
-          currentId = id;
-        }
-      });
-
-      if (currentId) {
-        sections.forEach(i => navLinks[i].classList.remove('active'));
-        navLinks[currentId].classList.add('active');
+  // callback for intersection changes
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      if (entry.isIntersecting) {
+        // clear old active
+        Object.values(navLinks).forEach(a => a.classList.remove("active"));
+        // set new active
+        navLinks[id].classList.add("active");
       }
     });
-  </script>
+  }, {
+    root: null,            // viewport
+    rootMargin: "-40% 0px -55% 0px", 
+    threshold: 0           // fire as soon as any pixel is visible
+  });
+
+  // observe each section
+  sections.forEach(sec => observer.observe(sec));
+</script>
+
 
 </body>
 </html>
