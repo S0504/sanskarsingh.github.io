@@ -11,13 +11,11 @@
     body {
       background: #0f172a url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
     }
-    /* Active nav pill */
-    nav a.active {
+    header nav a.active {
       background-color: rgba(255,255,255,0.1);
       border-radius: 9999px;
       padding: 0.5rem 1rem;
     }
-    /* Experience timeline line */
     .timeline {
       position: relative;
       padding-left: 2rem;
@@ -35,16 +33,18 @@
     .timeline-item {
       position: relative;
       margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-start;
     }
     .timeline-item:last-child {
       margin-bottom: 0;
     }
     .timeline-icon {
       position: absolute;
-      left: -0.375rem;
+      left: 0;
       top: 0.25rem;
-      width: 1.25rem;
-      height: 1.25rem;
+      width: 0.75rem;
+      height: 0.75rem;
       background: #0f172a;
       border: 2px solid #3b82f6;
       border-radius: 9999px;
@@ -73,13 +73,13 @@
 
   <main class="pt-24">
 
-    <!-- HERO -->
+    <!-- HOME -->
     <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-4">
       <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white">Hello, I'm Sanskar Singh</h1>
       <p class="text-lg md:text-xl text-gray-300 mb-6">
         Computer Science Student @ University of Alberta  
         <br/>
-        Building ML & Web apps with Python, React, AWS
+        Building ML & Web Apps with Python, React, AWS
       </p>
       <a href="sanskar_resume.pdf"
          class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition">
@@ -92,67 +92,134 @@
       <h2 class="text-3xl font-semibold border-b-2 border-gray-700 inline-block mb-6">About Me</h2>
       <p class="text-gray-300 leading-relaxed">
         I’m an Honors BSc Computing Science student at the University of Alberta (Admitted Fall 2022, Intl. Scholarship). 
-        My passions lie in AI, data science, and full-stack development. I’ve interned at AWS and NUS, optimizing ML pipelines
-        to reduce false positives and speed deployments. I code in Python, Java, C, SQL, and build web apps with React, Node.js, Firebase, and AWS.
+        I specialize in AI, data science, and full-stack development. Interned at AWS and NUS—optimizing ML pipelines to reduce false positives and speed deployments. 
+        I code in Python, Java, C, SQL, and build web apps with React, Node.js, Firebase, and AWS services.
       </p>
     </section>
 
     <!-- EXPERIENCE -->
     <section id="experience" class="max-w-3xl mx-auto py-16 px-4">
       <h2 class="text-3xl font-semibold border-b-2 border-gray-700 inline-block mb-6">Experience</h2>
-
       <div class="timeline text-gray-200">
-        <!-- University of Alberta RA -->
-        <div class="timeline-item flex items-start">
+
+        <!-- Research Assistant @ UAlberta -->
+        <div class="timeline-item">
           <span class="timeline-icon"></span>
-          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/University_of_Alberta_coat_of_arms.svg/1200px-University_of_Alberta_coat_of_arms.svg.png"
-               alt="UAlberta" />
+          <img src="ualberta-logo.png" alt="UAlberta logo" />
           <div>
             <h3 class="text-xl font-medium">Research Assistant</h3>
             <p class="italic text-sm mb-2">University of Alberta — Sep 2023 – Present</p>
-            <p>Assist in data-driven modeling and analysis for subsurface energy systems under Dr. Bo Zhang. Implement preprocessing pipelines and EDA in Python & SQL.</p>
+            <p>Assist in data-driven modeling & analysis for subsurface energy systems under Dr. Bo Zhang. Implement preprocessing pipelines and EDA in Python & SQL.</p>
           </div>
         </div>
 
-        <!-- NUS Internship -->
-        <div class="timeline-item flex items-start">
+        <!-- Research Intern @ NUS -->
+        <div class="timeline-item">
           <span class="timeline-icon"></span>
-          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/60/National_University_of_Singapore_horiz.svg/1200px-National_University_of_Singapore_horiz.svg.png"
-               alt="NUS" />
+          <img src="nus-logo.png" alt="NUS logo" />
           <div>
             <h3 class="text-xl font-medium">Research Intern</h3>
             <p class="italic text-sm mb-2">National University of Singapore — Jun 2024 – Jan 2025</p>
-            <p>Led CyberPhunks team on MA-Net vehicle damage detection; cut false positives by 20%. Preprocessed large-scale datasets & tuned hyperparameters for accuracy.</p>
+            <p>Led “CyberPhunks” on MA-Net vehicle damage detection; cut false positives by 20%. Preprocessed large-scale datasets, tuned hyperparameters for accuracy gains.</p>
           </div>
         </div>
 
-        <!-- AWS Internship -->
-        <div class="timeline-item flex items-start">
+        <!-- ML Deployment Intern @ AWS -->
+        <div class="timeline-item">
           <span class="timeline-icon"></span>
           <img src="https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png"
-               alt="AWS" />
+               alt="AWS logo" />
           <div>
             <h3 class="text-xl font-medium">ML Deployment Intern</h3>
             <p class="italic text-sm mb-2">Amazon Web Services — Jun 2024</p>
-            <p>Deployed models on SageMaker; automated ETL using Lambda & Glue. Improved pipeline performance by 30% via optimized resource scaling.</p>
+            <p>Deployed models on SageMaker; automated ETL with Lambda & Glue. Improved pipeline performance by 30% via optimized resource scaling.</p>
           </div>
         </div>
 
         <!-- Education -->
-        <div class="timeline-item flex items-start">
+        <div class="timeline-item">
           <span class="timeline-icon"></span>
-          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/University_of_Alberta_coat_of_arms.svg/1200px-University_of_Alberta_coat_of_arms.svg.png"
-               alt="UAlberta" />
+          <img src="ualberta-logo.png" alt="UAlberta logo" />
           <div>
             <h3 class="text-xl font-medium">BSc Honors, Computing Science</h3>
             <p class="italic text-sm mb-2">University of Alberta — Sep 2022 – Dec 2026</p>
-            <p>Relevant Coursework: Software Engineering, Data Structures & Algorithms, Database Management, Machine Learning, AI.</p>
+            <p>Relevant Coursework: Software Engineering, Data Structures & Algorithms, Database Management, Machine Learning, Artificial Intelligence.</p>
           </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="max-w-5xl mx-auto py-16 px-4">
+      <h2 class="text-3xl font-semibold border-b-2 border-gray-700 inline-block mb-8">Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-gray-300">
+        <div class="bg-gray-800 bg-opacity-60 backdrop-blur-md p-6 rounded-xl hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2">Event Lottery Android App</h4>
+          <p class="mb-4">QR-based event registration with Firebase backend and real-time notifications.</p>
+          <a href="https://github.com/CMPUT301F24appify/CMPUT301F24-Project"
+             class="text-blue-400 hover:underline">View on GitHub</a>
+        </div>
+        <div class="bg-gray-800 bg-opacity-60 backdrop-blur-md p-6 rounded-xl hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2">Movie Data System (SQL)</h4>
+          <p class="mb-4">PostgreSQL schema with triggers, views & advanced queries for a movie database.</p>
+          <a href="https://github.com/ualberta-cmput291/w24-mp1-the_grinders"
+             class="text-blue-400 hover:underline">View on GitHub</a>
+        </div>
+        <div class="bg-gray-800 bg-opacity-60 backdrop-blur-md p-6 rounded-xl hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2">Fire Risk Mapping</h4>
+          <p class="mb-4">Hex-level fire hazard classification using ACS data and ML models.</p>
+          <a href="https://github.com/animeshm19/Info-Architects"
+             class="text-blue-400 hover:underline">View on GitHub</a>
+        </div>
+        <div class="bg-gray-800 bg-opacity-60 backdrop-blur-md p-6 rounded-xl hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2">EDLFCN Sentiment Analysis</h4>
+          <p class="mb-4">Multimodal network integrating text, audio & visual data for sentiment prediction.</p>
+          <a href="https://github.com/mayanku1111/EDLFCN"
+             class="text-blue-400 hover:underline">View on GitHub</a>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS, SKILLS, CONTACT unchanged -->
+    <!-- SKILLS -->
+    <section id="skills" class="max-w-3xl mx-auto py-16 px-4">
+      <h2 class="text-3xl font-semibold border-b-2 border-gray-700 inline-block mb-6">Skills</h2>
+      <div class="flex flex-wrap gap-3 text-sm text-gray-300">
+        <span class="bg-gray-700 px-3 py-1 rounded">Python</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">Java</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">C/C++</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">SQL</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">React.js</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">Node.js</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">AWS</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">TensorFlow</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">PyTorch</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">Git</span>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-2xl mx-auto py-16 px-4">
+      <h2 class="text-3xl font-semibold border-b-2 border-gray-700 inline-block mb-6">Contact Me</h2>
+      <p class="text-gray-300 mb-6">
+        Email:
+        <a href="mailto:sanskar2@ualberta.ca" class="text-blue-400 hover:underline">
+          sanskar2@ualberta.ca
+        </a>
+      </p>
+      <form action="#" method="POST" class="space-y-4">
+        <input type="text"    name="name"    placeholder="Name" required
+               class="w-full bg-gray-800 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+        <input type="email"   name="email"   placeholder="Email" required
+               class="w-full bg-gray-800 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+        <textarea name="message" placeholder="Message" rows="5" required
+               class="w-full bg-gray-800 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        <button type="submit"
+                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded transition">
+          Send Message
+        </button>
+      </form>
+    </section>
 
   </main>
 
@@ -160,7 +227,7 @@
     &copy; 2025 Sanskar Singh
   </footer>
 
-  <!-- Nav‐pill active highlight & scrollspy -->
+  <!-- Scroll-spy -->
   <script>
     const sections = ['home','about','experience','projects','skills','contact'];
     const navLinks = sections.reduce((o,id) => {
