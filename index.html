@@ -1,127 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sanskar Singh | Portfolio</title>
 
-  <!-- AOS for scroll animations -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-    rel="stylesheet"
-  />
-  <!-- Your stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Hero pattern background (optional) -->
+  <style>
+    body {
+      background: #0f172a url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    }
+    /* hide mobile menu by default */
+    #nav-menu { display: none; }
+    @media(min-width: 768px) { #nav-menu { display: flex !important; } }
+  </style>
 </head>
 
-<body>
-  <!-- Theme toggle button -->
-  <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+<body class="text-gray-100 font-sans">
 
-  <header data-aos="fade-down">
-    <h1>Sanskar Singh</h1>
-    <p>Computer Science Student | Aspiring Data Scientist</p>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
+  <!-- NAVBAR -->
+  <header class="fixed w-full z-50 bg-gray-900 bg-opacity-40 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto flex items-center justify-between px-4 py-4">
+      <div class="text-2xl font-semibold">Sanskar Singh</div>
+
+      <!-- Desktop Nav -->
+      <nav id="nav-menu" class="space-x-6 text-sm font-medium">
+        <a href="#home" class="hover:text-blue-400">Home</a>
+        <a href="#about" class="hover:text-blue-400">About</a>
+        <a href="#experience" class="hover:text-blue-400">Experience</a>
+        <a href="#projects" class="hover:text-blue-400">Projects</a>
+        <a href="#skills" class="hover:text-blue-400">Skills</a>
+        <a href="#contact" class="hover:text-blue-400">Contact</a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button id="nav-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="nav-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Menu -->
+    <nav id="nav-menu-mobile" class="flex flex-col bg-gray-900 bg-opacity-40 backdrop-blur-md px-4 pb-4 space-y-2 md:hidden">
+      <a href="#home"    class="block hover:text-blue-400">Home</a>
+      <a href="#about"   class="block hover:text-blue-400">About</a>
+      <a href="#experience" class="block hover:text-blue-400">Experience</a>
+      <a href="#projects"  class="block hover:text-blue-400">Projects</a>
+      <a href="#skills"    class="block hover:text-blue-400">Skills</a>
+      <a href="#contact"   class="block hover:text-blue-400">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <!-- Projects grid -->
-    <section id="projects" class="grid" data-aos="fade-up">
-      <div class="card">
-        <h3>Event Lottery Android App</h3>
-        <p>Android app for managing event registrations with real-time QR scanning and Firebase backend.</p>
-        <a class="btn" href="https://github.com/CMPUT301F24appify/CMPUT301F24-Project" target="_blank">View Project</a>
-      </div>
+  <main class="pt-24">
 
-      <div class="card">
-        <h3>Movie Data System (SQL)</h3>
-        <p>Robust SQL queries, triggers and views to manage a normalized movie database in PostgreSQL.</p>
-        <a class="btn" href="https://github.com/ualberta-cmput291/w24-mp1-the_grinders" target="_blank">View Project</a>
-      </div>
+    <!-- HERO -->
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-4">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white">Hello, I'm Sanskar Singh</h1>
+      <p class="text-lg md:text-xl text-gray-300 mb-6">
+        Computer Science Student @ University of Alberta  
+        <br/>
+        Building ML & Web apps with Python, React, AWS
+      </p>
+      <a href="sanskar_resume.pdf" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition">
+        📄 Download Resume
+      </a>
+    </section>
 
-      <div class="card">
-        <h3>Fire Risk Mapping</h3>
-        <p>Geospatial fire hazard classification using demographic data and ML models.</p>
-        <a class="btn" href="https://github.com/animeshm19/Info-Architects" target="_blank">View Project</a>
-      </div>
+    <!-- ABOUT -->
+    <section id="about" class="max-w-3xl mx-auto py-16 px-4">
+      <h2 class="text-3xl font-semibold border-b-2 border-gray-700 inline-block mb-6">About Me</h2>
+      <p class="text-gray-300 leading-relaxed">
+        I’m a BSc Computing Science student (Honors) at UAlberta with strong interests in AI, data science, 
+        and full-stack development. I interned at AWS (SageMaker, Lambda, Glue, S3) and NUS (deep learning research), 
+        optimizing ML pipelines to reduce false positives by 20% and speed deployments by 30%. 
+        I write production-quality code in Python, Java, C, SQL, and build web apps using React, Node.js, 
+        Firebase, and AWS services.
+      </p>
+    </section>
 
-      <div class="card">
-        <h3>EDLFCN Sentiment Analysis</h3>
-        <p>Multimodal sentiment network with language-focused gating and cross-modal consistency.</p>
-        <a class="btn" href="https://github.com/mayanku1111/EDLFCN" target="_blank">View Project</a>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="max-w-3xl mx-auto py-16 px-4">
+      <h2 class="text-3xl font-semibold border-b-2 border-gray-700 inline-block mb-6">Experience</h2>
+      <div class="space-y-12 text-gray-300">
+        <!-- Job 1 -->
+        <div>
+          <h3 class="text-2xl font-medium">Research Intern @ NUS</h3>
+          <p class="italic text-sm mb-2">Jun 2024 – Jan 2025 (Remote)</p>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Led CyberPhunks on MA-Net vehicle damage detection; cut false positives by 20%.</li>
+            <li>Preprocessed large datasets; tuned hyperparameters for optimal accuracy.</li>
+          </ul>
+        </div>
+        <!-- Job 2 -->
+        <div>
+          <h3 class="text-2xl font-medium">ML Deployment Intern @ AWS</h3>
+          <p class="italic text-sm mb-2">Jun 2024 (On-site, Singapore)</p>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Deployed models with SageMaker; automated ETL with Lambda & Glue.</li>
+            <li>Improved pipeline speed by 30% via optimized resource allocation.</li>
+          </ul>
+        </div>
+        <!-- Education -->
+        <div>
+          <h3 class="text-2xl font-medium">BSc Honors, Computing Science</h3>
+          <p class="italic text-sm mb-2">Univ. of Alberta — Sep 2022 – Present</p>
+          <p>Relevant Coursework: ML, AI, Reinforcement Learning, Algorithms, Data Science, Database Mgmt.</p>
+        </div>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="grid" data-aos="fade-up" data-aos-delay="100">
-      <div class="card">
-        <h3>Skills</h3>
-        <p>Python · Java · C · SQL · Git · PyTorch · TensorFlow · React · AWS · HTML · CSS</p>
+    <!-- PROJECTS -->
+    <section id="projects" class="max-w-5xl mx-auto py-16 px-4">
+      <h2 class="text-3xl font-semibold border-b-2 border-gray-700 inline-block mb-8">Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-gray-300">
+        <!-- Card 1 -->
+        <div class="bg-gray-800 bg-opacity-60 backdrop-blur-md p-6 rounded-xl hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2">Event Lottery Android App</h4>
+          <p class="mb-4">QR-based event registration app with Firebase backend and real-time notifications.</p>
+          <a href="https://github.com/CMPUT301F24appify/CMPUT301F24-Project" class="text-blue-400 hover:underline">View on GitHub</a>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-gray-800 bg-opacity-60 backdrop-blur-md p-6 rounded-xl hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2">Movie Data System (SQL)</h4>
+          <p class="mb-4">PostgreSQL schema with triggers, views & advanced queries for a movie database.</p>
+          <a href="https://github.com/ualberta-cmput291/w24-mp1-the_grinders" class="text-blue-400 hover:underline">View on GitHub</a>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-gray-800 bg-opacity-60 backdrop-blur-md p-6 rounded-xl hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2">Fire Risk Mapping</h4>
+          <p class="mb-4">Hex-level fire hazard classification using ACS data and ML models.</p>
+          <a href="https://github.com/animeshm19/Info-Architects" class="text-blue-400 hover:underline">View on GitHub</a>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-gray-800 bg-opacity-60 backdrop-blur-md p-6 rounded-xl hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2">EDLFCN Sentiment Analysis</h4>
+          <p class="mb-4">Multimodal sentiment network integrating text, audio & visual data.</p>
+          <a href="https://github.com/mayanku1111/EDLFCN" class="text-blue-400 hover:underline">View on GitHub</a>
+        </div>
       </div>
     </section>
 
-    <!-- Resume -->
-    <section id="resume" class="grid" data-aos="fade-up" data-aos-delay="200">
-      <div class="card">
-        <h3>Resume</h3>
-        <p>Download my full resume below.</p>
-        <a class="btn" href="sanskar_resume.pdf" target="_blank">Download PDF</a>
+    <!-- SKILLS -->
+    <section id="skills" class="max-w-3xl mx-auto py-16 px-4">
+      <h2 class="text-3xl font-semibold border-b-2 border-gray-700 inline-block mb-6">Skills</h2>
+      <div class="flex flex-wrap gap-3 text-sm text-gray-300">
+        <span class="bg-gray-700 px-3 py-1 rounded">Python</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">Java</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">C/C++</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">SQL</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">React.js</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">Node.js</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">AWS</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">TensorFlow</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">PyTorch</span>
+        <span class="bg-gray-700 px-3 py-1 rounded">Git</span>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="grid" data-aos="fade-up" data-aos-delay="300">
-      <div class="card">
-        <h3>Contact</h3>
-        <p><a href="mailto:sanskar2@ualberta.ca">sanskar2@ualberta.ca</a></p>
-        <p><a href="https://github.com/S0504" target="_blank">github.com/S0504</a></p>
-        <p><a href="https://linkedin.com/in/yourname" target="_blank">linkedin.com/in/yourname</a></p>
-      </div>
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-2xl mx-auto py-16 px-4">
+      <h2 class="text-3xl font-semibold border-b-2 border-gray-700 inline-block mb-6">Contact Me</h2>
+      <p class="text-gray-300 mb-6">
+        Email: 
+        <a href="mailto:sanskar2@ualberta.ca" class="text-blue-400 hover:underline">
+          sanskar2@ualberta.ca
+        </a>
+      </p>
+      <form action="#" method="POST" class="space-y-4">
+        <input type="text"    name="name"    placeholder="Name"    required
+               class="w-full bg-gray-800 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+        <input type="email"   name="email"   placeholder="Email"   required
+               class="w-full bg-gray-800 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+        <textarea name="message" placeholder="Message" rows="5" required
+               class="w-full bg-gray-800 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        <button type="submit"
+                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded transition">
+          Send Message
+        </button>
+      </form>
     </section>
+
   </main>
 
-  <footer data-aos="fade-up" data-aos-delay="400">
-    <p>&copy; 2025 Sanskar Singh</p>
+  <footer class="py-8 text-center text-gray-500 text-sm">
+    &copy; 2025 Sanskar Singh
   </footer>
 
-  <!-- AOS and custom scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Nav toggle script -->
   <script>
-    // Initialize AOS
-    AOS.init({ once: true });
-
-    // Theme switcher
-    const btn = document.getElementById('theme-toggle');
-    const root = document.documentElement;
-    const defaultTheme = localStorage.getItem('theme') || 'light';
-    root.setAttribute('data-theme', defaultTheme);
-    btn.textContent = defaultTheme === 'light' ? '🌙' : '☀️';
-    btn.onclick = () => {
-      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      btn.textContent = next === 'light' ? '🌙' : '☀️';
-    };
-
-    // Ripple effect on buttons/links
-    document.querySelectorAll('.btn').forEach(el => {
-      el.addEventListener('click', function(e) {
-        const circle = document.createElement('span');
-        const { left, top, width, height } = this.getBoundingClientRect();
-        const d = Math.max(width, height);
-        circle.style.width = circle.style.height = d + 'px';
-        circle.style.left = e.clientX - left - d / 2 + 'px';
-        circle.style.top = e.clientY - top - d / 2 + 'px';
-        circle.classList.add('ripple');
-        this.appendChild(circle);
-        setTimeout(() => circle.remove(), 600);
-      });
+    const btn = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu-mobile');
+    btn.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
     });
+    // Close mobile menu on link click
+    document.querySelectorAll('#nav-menu-mobile a').forEach(a =>
+      a.addEventListener('click', () => menu.style.display = 'none')
+    );
   </script>
 </body>
 </html>
