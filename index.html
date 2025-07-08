@@ -228,31 +228,40 @@
   </footer>
 
   <script>
-  // Grab all <section id="..."> elements and map their nav links
+  // 1) Turn off restoration so reload always starts at top
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  // 2) Grab sections & nav links
   const sections = document.querySelectorAll('section[id]');
   const navLinks = {};
   sections.forEach(sec => {
     navLinks[sec.id] = document.getElementById('nav-' + sec.id);
   });
 
-  // Observe when a section crosses the center of the viewport
+  // 3) Highlight immediately on click
+  Object.values(navLinks).forEach(link => {
+    link.addEventListener('click', () => {
+      Object.values(navLinks).forEach(a => a.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+
+  // 4) IntersectionObserver for scroll‐spy
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Clear all active classes
         Object.values(navLinks).forEach(a => a.classList.remove('active'));
-        // Highlight the one that just intersected
         navLinks[entry.target.id].classList.add('active');
       }
     });
   }, {
-    root: null,               // viewport
-    rootMargin: '-50% 0px -50% 0px', 
-    threshold: 0              // fire as soon as any bit crosses that middle band
+    root: null,
+    rootMargin: '-30% 0px -70% 0px',
+    threshold: 0
   });
-
   sections.forEach(sec => observer.observe(sec));
 </script>
+
 
 
 
