@@ -4,52 +4,124 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sanskar Singh | Portfolio</title>
-  <link href="style.css" rel="stylesheet" />
+
+  <!-- AOS for scroll animations -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    rel="stylesheet"
+  />
+  <!-- Your stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+  <header data-aos="fade-down">
     <h1>Sanskar Singh</h1>
-    <p>Computer Science Student | Aspiring Data Scientist | Problem Solver</p>
+    <p>Computer Science Student | Aspiring Data Scientist</p>
     <nav>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
+      <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li>
-          <strong>Hospital Readmission Predictor</strong><br/>
-          ML model using Lasso & Random Forest to predict readmission risk.<br/>
-          <a href="https://github.com/S0504/hospital-readmission">View on GitHub</a>
-        </li>
-        <li>
-          <strong>Fire Risk Mapping</strong><br/>
-          Geo-spatial fire hazard classification using ACS + building data.<br/>
-          <a href="https://github.com/S0504/fire-risk-map">View on GitHub</a>
-        </li>
-      </ul>
+    <!-- Projects grid -->
+    <section id="projects" class="grid" data-aos="fade-up">
+      <div class="card">
+        <h3>Event Lottery Android App</h3>
+        <p>Android app for managing event registrations with real-time QR scanning and Firebase backend.</p>
+        <a class="btn" href="https://github.com/CMPUT301F24appify/CMPUT301F24-Project" target="_blank">View Project</a>
+      </div>
+
+      <div class="card">
+        <h3>Movie Data System (SQL)</h3>
+        <p>Robust SQL queries, triggers and views to manage a normalized movie database in PostgreSQL.</p>
+        <a class="btn" href="https://github.com/ualberta-cmput291/w24-mp1-the_grinders" target="_blank">View Project</a>
+      </div>
+
+      <div class="card">
+        <h3>Fire Risk Mapping</h3>
+        <p>Geospatial fire hazard classification using demographic data and ML models.</p>
+        <a class="btn" href="https://github.com/animeshm19/Info-Architects" target="_blank">View Project</a>
+      </div>
+
+      <div class="card">
+        <h3>EDLFCN Sentiment Analysis</h3>
+        <p>Multimodal sentiment network with language-focused gating and cross-modal consistency.</p>
+        <a class="btn" href="https://github.com/mayanku1111/EDLFCN" target="_blank">View Project</a>
+      </div>
     </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <p>Python, SQL, Java, C, Git, Scikit-Learn, PyTorch, HTML, CSS, GitHub Pages</p>
+    <!-- Skills -->
+    <section id="skills" class="grid" data-aos="fade-up" data-aos-delay="100">
+      <div class="card">
+        <h3>Skills</h3>
+        <p>Python · Java · C · SQL · Git · PyTorch · TensorFlow · React · AWS · HTML · CSS</p>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-      <p>GitHub: <a href="https://github.com/S0504">github.com/S0504</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/yourname">linkedin.com/in/yourname</a></p>
+    <!-- Resume -->
+    <section id="resume" class="grid" data-aos="fade-up" data-aos-delay="200">
+      <div class="card">
+        <h3>Resume</h3>
+        <p>Download my full resume below.</p>
+        <a class="btn" href="sanskar_resume.pdf" target="_blank">Download PDF</a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="grid" data-aos="fade-up" data-aos-delay="300">
+      <div class="card">
+        <h3>Contact</h3>
+        <p><a href="mailto:sanskar2@ualberta.ca">sanskar2@ualberta.ca</a></p>
+        <p><a href="https://github.com/S0504" target="_blank">github.com/S0504</a></p>
+        <p><a href="https://linkedin.com/in/yourname" target="_blank">linkedin.com/in/yourname</a></p>
+      </div>
     </section>
   </main>
 
-  <footer>
+  <footer data-aos="fade-up" data-aos-delay="400">
     <p>&copy; 2025 Sanskar Singh</p>
   </footer>
+
+  <!-- AOS and custom scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({ once: true });
+
+    // Theme switcher
+    const btn = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    const defaultTheme = localStorage.getItem('theme') || 'light';
+    root.setAttribute('data-theme', defaultTheme);
+    btn.textContent = defaultTheme === 'light' ? '🌙' : '☀️';
+    btn.onclick = () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      btn.textContent = next === 'light' ? '🌙' : '☀️';
+    };
+
+    // Ripple effect on buttons/links
+    document.querySelectorAll('.btn').forEach(el => {
+      el.addEventListener('click', function(e) {
+        const circle = document.createElement('span');
+        const { left, top, width, height } = this.getBoundingClientRect();
+        const d = Math.max(width, height);
+        circle.style.width = circle.style.height = d + 'px';
+        circle.style.left = e.clientX - left - d / 2 + 'px';
+        circle.style.top = e.clientY - top - d / 2 + 'px';
+        circle.classList.add('ripple');
+        this.appendChild(circle);
+        setTimeout(() => circle.remove(), 600);
+      });
+    });
+  </script>
 </body>
 </html>
-
